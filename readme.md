@@ -141,6 +141,17 @@ setInterval描述的是每隔多少时间执行某操作，如：
 
 * setTimeout 和 setInterval最重要的区别就是：如果用setTimeout和setInterval来实现一个重复的操作，切记！setTimeout是等待循环的操作执行完成之后，才继续在间隔时间之后再把循环操作添加到javascript的线程里面，而setInterval是不等待的，它从来不管放在线程里面循环操作有没有执行完成，反正到点就会把循环操作添加到javascript线程队列里面。但是这里有一点需要说明一下，js线程不会维护setInterval里面已经过期的了的循环操作，所以同一个setInterval在线程里面只会有一个轮次。理解这一点很重要，这是setTimeout性能优于setInterval的根源！现在用一张草图说明一下这个过程，如下：
 
+>> setTimeout
+
+ ![setTimeout](https://github.com/woai30231/javascriptThreadStudy/blob/master/images/demo_2.png)
+
+>> setInterval
+
+ ![setInterval](https://github.com/woai30231/javascriptThreadStudy/blob/master/images/demo_3.png)
+
+
+>> 由此可见，他们的区别了！
+
 
 
 
