@@ -63,10 +63,86 @@ setTimeout描述的操作就是程序在多少时间之后再执行某操作，�
 
 ``` javascript
 
-  	setTimeout(fn,timer);
+  	var id = setTimeout(fn,timer);
   	//fn是签名函数
   	//timer间隔时间
+  	//返回一个id值，在fn未触发之前，可以通过clearTimeout(id)清除，从而不执行fn
+  	clearTimeout(id);
 
 ```
+
+
+* setInterval 间隔定时器
+
+setInterval描述的是每隔多少时间执行某操作，如：
+
+``` javascript
+	var cc = 1;
+	function fn(){
+		cc += 1;
+		console.log(cc);
+	};
+
+
+	setInterval(fn,1000);
+```
+
+>> setInterval API
+
+
+``` javascript
+	
+	var id = setInterval(fn,timer);
+	//fn是要执行签名名字，
+	//timer是间隔时间
+	//返回一个id，用于将来某个时间用clearInterval清除间隔定时器
+	clearInterval(id);
+
+
+```
+
+
+###　setTimeout和setInterval的区别
+
+* 首先从概念上来说明，setTimeout多少时间之后执行某操作，只执行一次，而setInterval每隔多少时间之后执行某操作，如果不用clearInterval清除的话，将会一直执行下去。其实两个方法都返回一个id值，用于清除定时器，分别是clearTimeout和clearInterval，还有说明一下这两个操作都是异步的，其实这也是javascript在浏览器中最最最简单的异步操作了！
+
+* 再次从性能上来说，setTimeout的性能是要优于setInterval的，这一点将会在后面的文档中说明，需要联系上面所说的排队机制！
+
+
+* 记住一点，能用setInterval实现的操作，一定能用setTimeout来实现，如下面的例子：
+
+
+``` javascript
+	
+	//实现对一个数字定时加1操作 
+	//setTimeout
+	(function(){
+		var a = 0;
+		setTimeout(function fun(){
+			a += 1;
+			console.log(a);
+			setTimeout(fun,1000);
+		},1000);
+	})();
+
+	//setInterval
+
+	(function(){
+		var a = 0;
+		setInterval(function(){
+			a += 1;
+			console.log(a);
+		},1000);
+	})();
+
+
+```
+
+
+* setTimeout 和 setInterval最重要的区别就是：如果用setTimeout和setInterval来实现一个重复的操作，切记！setTimeout是等待循环的操作执行完成之后，才继续在间隔时间之后再把循环操作添加到javascript的线程里面，而setInterval是不等待的，它从来不管放在线程里面循环操作有没有执行完成，反正到点就会把循环操作添加到javascript线程队列里面。但是这里有一点需要说明一下，js线程不会维护setInterval里面已经过期的了的循环操作，所以同一个setInterval在线程里面只会有一个轮次。理解这一点很重要，这是setTimeout性能优于setInterval的根源！现在用一张草图说明一下这个过程，如下：
+
+
+
+
 
 
