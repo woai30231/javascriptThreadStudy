@@ -150,7 +150,7 @@ setInterval描述的是每隔多少时间执行某操作，如：
  ![setInterval](https://github.com/woai30231/javascriptThreadStudy/blob/master/images/demo_3.png)
 
 
->> 由此可见，他们的区别了！
+>> 由此可见，setTimeout可以让浏览器换下气，而setInterval是不管浏览器死活的，它自己爽了就好，但是严重影响性能！至于为什么这样会影响性能，后面的文档会仔细说明！
 
 
 
