@@ -57,15 +57,14 @@ setTimeout描述的操作就是程序在多少时间之后再执行某操作，�
 	setTimeout(fun,5000);
 	//5秒之后打印2
 
+>> setTimeout API
 
-  >> setTimeout API
-
-  ``` javascript
+``` javascript
 
   	setTimeout(fn,timer);
   	//fn是签名函数
   	//timer间隔时间
 
-  ```
+```
 
 
