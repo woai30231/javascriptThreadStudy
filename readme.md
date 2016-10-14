@@ -146,11 +146,9 @@ setInterval描述的是每隔多少时间执行某操作，如：
  ![setTimeout](https://github.com/woai30231/javascriptThreadStudy/blob/master/images/demo_2.png)
 
 
-<pre class="brush:html;gutter:false;">
+ _注意：上面的上面图实际上有点不准确，正常情况应该是在10ms处时才添加第一个队列，然后在30ms处添加第二个队列，以此类推！这里只是为方便说明，所以图片上是在0ms时添加了第一个队列，望注意！_
 
- <p style="color:#c00;font-style:italic;">_注意：上面的上面图实际上有点不准确，正常情况应该是在10ms处时才添加第一个队列，然后在30ms处添加第二个队列，以此类推！这里只是为方便说明，所以图片上是在0ms时添加了第一个队列，望注意！_</p>
 
-</pre>
 
 >> setInterval
 
