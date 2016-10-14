@@ -452,6 +452,9 @@ setTimeout的奥妙就是把一个执行时间很长的代码分成执行时间�
 ![](https://github.com/woai30231/javascriptThreadStudy/blob/master/images/demo_7.png)
 
 
+##### 我们从截图可以知道：setTimeout和setInterval都有误差，但是setTimeout波动没有setInterval那么大！同时如果我们把间隔时间设置为较大的一个时间粒度，同样也会有误差，但是相对说来说，影响不是很大，可以忽略不计，但是小粒度就得注意了，因为对于5000ms有个0~10ms左右的误差都可以忽略不计的，但是对于1ms有个几毫秒的误差就得商榷了！
+
+
 
 
 
