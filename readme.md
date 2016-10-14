@@ -397,7 +397,63 @@ setTimeout的奥妙就是把一个执行时间很长的代码分成执行时间�
 
 ## 事件轮询
 
-#这部分内容待完善#
+**这部分内容待完善**
+
+
+## setTimeout和setInterval间隔时间粒度讨论（仅作讨论，以说明在小粒度的时候误差很大）
+
+目前来说，鉴于各大浏览器的js引擎等原因，这两种定时器都很难实现时间间隔粒度精确到1ms或比这个时间更小的时间粒度的处理，当然了，浏览器各大厂商正在努力想这个方向靠拢！我们来做一个测试，代码如下:
+
+>> **setTimeout版** 点[这里](https://github.com/woai30231/javascriptThreadStudy/blob/master/html/demo5.html)查看全部代码
+
+
+``` javascript
+		
+
+		var startTime = new Date().getTime();
+		for(var i = 0;i<100;i++){
+			setTimeout(function fn(){
+				var endTime = new Date().getTime();
+				var diffTime = endTime - startTime;
+				console.log("中间相差了"+diffTime+"毫秒");
+				startTime = endTime;//结束时间作开始时间
+			},1);
+		};
+
+```
+
+- _浏览器控制台截图(firefox浏览器)_
+
+![](https://github.com/woai30231/javascriptThreadStudy/blob/master/images/demo_6.png)
+
+
+>> **setInterval**版，点[这里](https://github.com/woai30231/javascriptThreadStudy/blob/master/html/demo6.html)
+
+
+``` javascript
+
+	var startTime = new Date().getTime();
+	var num = 0;
+	var id = setInterval(function fn(){			
+		if(num>=100){
+			clearInterval(id);
+			return;
+		};
+		var endTime = new Date().getTime();
+		var diffTime = endTime - startTime;
+		startTime = endTime;//结束时间赋值给开始时间
+		console.log("间隔了"+diffTime+"毫秒");
+		num += 1;
+	},1);
+
+```
+
+![](https://github.com/woai30231/javascriptThreadStudy/blob/master/images/demo_7.png)
+
+
+
+
+
 
 
 
