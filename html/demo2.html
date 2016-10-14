@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="Zh-cn">
+<head>
+	<title>20000*6的一个表格</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1.0"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+	<meta name="description" content=""/>
+	<meta name="Keywords" content=""/>
+	<meta name="renderer" content="webkit"/>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		body{
+			font-size: 14px;
+			color: #333;
+			background-color: #fff;
+		}
+		.box{
+			margin: 0px auto;
+			width: 1180px;
+			padding: 10px;
+		}
+		table{
+			width: 100%;
+			border: 0px;
+			border-spacing: 0px;
+			text-align: center;
+		}
+		td{
+			border: 1px solid #ddd;
+			border-left: 0px;
+			border-bottom: 0px;
+			padding: 10px 0px;
+		}
+		td:hover{
+			background-color: #eee;
+		}
+		table tr:last-child td{
+			border-bottom: 1px solid #ddd;
+		}
+		table tr td:first-child{
+			border-left: 1px solid #ddd;
+		}
+	</style>
+</head>
+<body>
+
+	 <div class="box">
+	 	<table>
+	 		<tbody></tbody>
+	 	</table>
+	 </div>
+
+
+	 <script type="text/javascript">
+	 	
+	 window.onload = function(){
+	 	(function(){
+	 		/*这里我们把原本一步完成的事情，在这里分成5小步，从而达到把耗时大的代码划分为耗时小的代码
+	 		有利于html页面快速构建*/
+	 		var stepNum = 4000;
+	 		var isComplete = false;//表格是否渲染完成
+	 		var num = 0;//单元格序号
+	 		var timeoutId = setTimeout(function fn(){
+	 			if(isComplete){
+	 				clearTimeout(timeoutId);
+	 				return;
+	 			};
+	 			for(var i = 0,len = stepNum;i<len;i++){
+	 				
+	 			};
+	 		},0);
+	 	})();
+	 };
+
+
+
+	 </script>
+
+</body>
+</html>

@@ -202,6 +202,13 @@ setInterval描述的是每隔多少时间执行某操作，如：
 ```
 
 
+我们发现上面的页面加载的时候空白了一段时间，虽然这里性能损耗还不足以让浏览器死机。但现在改进一下js代码，是可以让这个空白时间缩短的，好的，代码如下(查看[全部代码](https://github.com/woai30231/javascriptThreadStudy/blob/master/html/demo2.html))：
+
+
+
+
+
+
 
 
 
