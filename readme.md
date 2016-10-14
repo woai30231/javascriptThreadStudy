@@ -168,6 +168,36 @@ setInterval描述的是每隔多少时间执行某操作，如：
 	<table>
 		<tbody></tbody>
 	</table>
+
+
+
+	 <script type="text/javascript">
+	 	
+	 window.onload = function(){
+	 	(function(){
+
+	 		var table = document.getElementsByTagName('table')[0];
+		 	var tbody = table.getElementsByTagName('tbody')[0];
+		 	var num = 0
+		 	for(var i = 0,len = 20000;i<len;i++){
+		 		var tr = document.createElement("tr");
+		 		for(var j = 0,len1 = 6;j<len1;j++){
+		 			var td = document.createElement('td');
+		 			num += 1;
+		 			var txt = document.createTextNode(num);
+		 			td.appendChild(txt);
+		 			tr.appendChild(td);
+		 		};
+		 		tbody.appendChild(tr);
+		 	};
+
+
+	 	})();
+	 };
+
+
+
+	 </script>
 	
 ```
 
