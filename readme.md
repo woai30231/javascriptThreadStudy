@@ -447,6 +447,7 @@ setTimeout的奥妙就是把一个执行时间很长的代码分成执行时间�
 	},1);
 
 ```
+>> _浏览器控制台截图（firefox浏览器）_
 
 ![](https://github.com/woai30231/javascriptThreadStudy/blob/master/images/demo_7.png)
 
