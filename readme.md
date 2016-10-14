@@ -260,6 +260,56 @@ setInterval描述的是每隔多少时间执行某操作，如：
 
 ```
 
+**我们发现使用了setTimeout来的代码打开页面会快了许多，当然了可能视觉上看不是很明显，原因也是有的，其一就是我们这里的代码量还算在合理量之间，其二，可能跟浏览器的性能什么的有一些关系。但这的确是加快了页面响应时间的，不信，我们可以在代码中加一些东西，来看看当页面刚记载的时候到页面有内容呈现花了多少时间，所以对以上代码分别做如下更改**
+
+>> 未用setTimeout版，点[这里](https://github.com/woai30231/javascriptThreadStudy/blob/master/html/demo3.html)查看全部代码
+
+<pre class="brush:html;gutter:true">
+	
+
+	<table>
+		<tbody></tbody>
+	</table>
+
+
+
+
+	<script type="text/javascript">
+	 	
+	 window.onload = function(){
+	 	var startTime = new Date().getTime();
+	 	(function(){
+
+	 		var table = document.getElementsByTagName('table')[0];
+		 	var tbody = table.getElementsByTagName('tbody')[0];
+		 	var num = 0
+		 	for(var i = 0,len = 20000;i<len;i++){
+		 		var tr = document.createElement("tr");
+		 		for(var j = 0,len1 = 6;j<len1;j++){
+		 			var td = document.createElement('td');
+		 			num += 1;
+		 			var txt = document.createTextNode(num);
+		 			td.appendChild(txt);
+		 			tr.appendChild(td);
+		 		};
+		 		tbody.appendChild(tr);
+		 	};
+
+
+	 	})();
+	 	var endTime = new Date().getTime();
+	 	var diffTime = endTime - startTime;
+	 	console.log("页面渲染这个表格花费了"+diffTime+"毫秒");
+	 };
+
+
+
+	 </script>
+
+
+	 
+</pre>
+
 
 
 
