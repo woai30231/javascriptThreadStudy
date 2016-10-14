@@ -264,14 +264,15 @@ setInterval描述的是每隔多少时间执行某操作，如：
 
 >> 未用setTimeout版，点[这里](https://github.com/woai30231/javascriptThreadStudy/blob/master/html/demo3.html)查看全部代码
 
-<pre class="brush:html;gutter:true">
+<pre class="brush:html;gutter:true;">
 	
 
 	<table>
 		<tbody></tbody>
 	</table>
 
-
+</pre>
+<pre class="brush:javascript;gutter:true;">
 
 
 	<script type="text/javascript">
@@ -307,7 +308,7 @@ setInterval描述的是每隔多少时间执行某操作，如：
 	 </script>
 
 
-	 
+
 </pre>
 
 
