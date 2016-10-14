@@ -109,7 +109,7 @@ setInterval描述的是每隔多少时间执行某操作，如：
 * 再次从性能上来说，setTimeout的性能是要优于setInterval的，这一点将会在后面的文档中说明，需要联系上面所说的排队机制！
 
 
-* 记住一点，能用setInterval实现的操作，一定能用setTimeout来实现，如下面的例子：
+* setTimeout和setInterval都不能保证到了时间点一定会执行,如：setTimeout(fn,5000),并不能保证5s之后一定能执行fn。这得取决于当前js线程队列里面还有没有其他待处理队列，如果刚好没有的话，那么就能刚好执行，如果当前线程里面已经有了其它待处理队列正在执行，那么需要排队，等到javascript线程空闲的时候才会执行定时器！还有需要记住一点，能用setInterval实现的操作，一定能用setTimeout来实现，如下面的例子：
 
 
 ``` javascript
@@ -146,7 +146,7 @@ setInterval描述的是每隔多少时间执行某操作，如：
  ![setTimeout](https://github.com/woai30231/javascriptThreadStudy/blob/master/images/demo_2.png)
 
 
- _注意：上面的上面图实际上有点不准确，正常情况应该是在10ms处时才添加第一个队列，然后在30ms处添加第二个队列，以此类推！这里只是为方便说明，所以图片上是在0ms时添加了第一个队列，望注意！_
+ _注意：上面的图实际上有点不准确，正常情况应该是在10ms处时才添加第一个队列，然后在30ms处添加第二个队列，以此类推！这里只是为方便说明，所以图片上是在0ms时添加了第一个队列，望注意！_
 
 
 
