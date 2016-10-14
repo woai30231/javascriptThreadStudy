@@ -63,6 +63,8 @@
 	 	(function(){
 	 		/*这里我们把原本一步完成的事情，在这里分成5小步，从而达到把耗时大的代码划分为耗时小的代码
 	 		有利于html页面快速构建*/
+	 		var table = document.getElementsByTagName('table')[0];
+	 		var tbody = table.getElementsByTagName('tbody')[0];
 	 		var stepNum = 4000;
 	 		var isComplete = false;//表格是否渲染完成
 	 		var num = 0;//单元格序号
@@ -71,9 +73,26 @@
 	 				clearTimeout(timeoutId);
 	 				return;
 	 			};
-	 			for(var i = 0,len = stepNum;i<len;i++){
-	 				
+	 			for(var i = 0,len = 4000;i<len;i++){
+	 				var tr = document.createElement('tr');
+	 				for(var j = 0,len1 = 6;j<len1;j++){
+	 					var td = document.createElement('td');
+	 					num += 1;
+	 					var currentNum = num;//因为i是从零开始的，所以需要加1
+	 					td.appendChild(document.createTextNode(currentNum));
+	 					tr.appendChild(td);
+	 				};
+	 				tbody.appendChild(tr);
 	 			};
+	 			stepNum += 4000;
+	 			if(stepNum > 20000){
+	 				isComplete = true;//说明已经超过20000行了
+	 			};
+	 			setTimeout(fn,0);//0ms之后继续调用fn
+	 			//这里说明一下，setTimeout和setInterval并不能准确保证短时粒度的执行
+	 			//也就是说，这里虽然要求是0ms之后把代码推送到事件队列里面
+	 			//但是可能实际上是真正执行的是在比0ms长的时间之后推送到时间队列里面
+	 			//关于这一点可以再开一个单元来说明
 	 		},0);
 	 	})();
 	 };
