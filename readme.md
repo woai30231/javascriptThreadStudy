@@ -1,5 +1,9 @@
 # javascript线程及与线程有关的性能优化
 
+##### 友情链接
+
+[一篇很好的帮你理解javascript events loop的文章](http://altitudelabs.com/blog/what-is-the-javascript-event-loop/)
+
 ## 声明
 
 这些内容都是按我自己的理解来组织和写的，可能术语什么的有些不是很严谨，所以有些概念模糊的应也专业的术语为准，<span style="color:#ccc;">这里介绍的有些“术语”并不等同于你已经知道的那些“术语”，所以不要硬套概念在这里去理解！</span>当然了，我也会经常复习查看这里的文档，对一些错误额观点会及时更正，尽量保证严谨性！
